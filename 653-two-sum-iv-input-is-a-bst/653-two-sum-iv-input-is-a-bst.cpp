@@ -11,13 +11,26 @@
  */
 class Solution {
 public:
-    unordered_map<int, int> mp;
+    bool preorder(TreeNode* root, int k,  bool & f, TreeNode* check){
+        if(!root)return false;
+        if(root->val == k and root != check)return true;
+        return preorder(root->left, k, f, check) or preorder(root->right, k, f, check);
+    }
+    void inorder(TreeNode* root, int k, bool & f, TreeNode* temp){
+        if(!root)return;
+        if(f ==  true)return;
+        inorder(root->left, k, f, temp);
+        if(preorder(temp, k - root->val , f, root) == true){
+            f = true;
+            return;
+        };
+        inorder(root->right, k, f, temp);
+        
+    }
     bool findTarget(TreeNode* root, int k) {
-        if(root==NULL) return false;
-        if(mp.find(root->val)!=mp.end())return true;
-        mp[k-root->val]++;
-        bool l = findTarget(root->left,k);
-        bool r = findTarget(root->right,k);
-        return l or r;
+        bool f = false;
+        TreeNode* temp =  root;
+        inorder(root, k, f, temp);
+        return f;
     }
 };
