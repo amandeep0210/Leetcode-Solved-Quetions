@@ -8,7 +8,7 @@ class Solution{
     public:
     int maximizeSum(int a[], int n) 
     {
-        sort(a, a+n);
+        // sort(a, a+n);
         unordered_map<int, int> mp;
         vector<int> v;
         for(int i = 0; i<n; i++){
@@ -17,8 +17,6 @@ class Solution{
             }
             mp[a[i]]++;
         }
-        // for(auto it : v) cout << it << " " ;
-        // cout << endl;
         int sum = 0;
         for(int i = v.size()-1; i>=0; i--){
            if(mp[v[i]] == 0)continue;
