@@ -30,8 +30,32 @@ class Solution {
 	    }
 		int CountWays(string str){
 		    // Code here
-		    vector<int> dp(str.length()+1, -1);
-		    return  fn(0, str, dp)%mod;
+		    // Memoisation:
+		  //  vector<int> dp(str.length()+1, -1);
+		  //  return  fn(0, str, dp)%mod;
+		  
+		  // Tabulation :
+		  int n = str.length();
+		  vector<int>dp(str.length()+1, 0);
+		  dp[n] = 1;
+		  for(int i = n-1; i>=0; i--){
+		      int ans1 = 0, ans2 =0;
+	        if(i < str.length()){
+	            int t = str[i]-'0';
+	            if(t == 0)ans1 =0;
+	            else  ans1 = dp[i+1];
+	           
+	        }
+	        
+	        if(i+1 < str.length()){
+	            string temp = str.substr(i, 2);
+	            int t = stoi(temp);
+	            if(t <= 26 and t>=10)ans2 = dp[i+2];
+	            else ans2 = 0;
+	        }
+	        dp[i] = (ans1+ans2)%mod;
+		  }
+		  return dp[0]%mod;
 		}
 
 };
