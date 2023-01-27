@@ -8,7 +8,7 @@ class Solution {
 	    int mod = 1e9+7;
 	    int fn(int ind, string str, vector<int>&dp){
 	        if(ind == str.length())return 1;
-	        if(ind > str.length())return 0;
+	       // if(ind > str.length())return 0;
 	        if(dp[ind] != -1)return dp[ind];
 	        
 	        // try all the possible ways:
@@ -43,7 +43,7 @@ class Solution {
 	        if(i < str.length()){
 	            int t = str[i]-'0';
 	            if(t == 0)ans1 =0;
-	            else  ans1 = dp[i+1];
+	            else ans1 = dp[i+1];
 	           
 	        }
 	        
