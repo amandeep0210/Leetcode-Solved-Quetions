@@ -9,7 +9,6 @@ using namespace std;
 
 class Solution{   
 public:
-    int mod = 1e9;
     long long int fn(int ind, int last, int &N, vector<long long>&r, vector<long long>&g, vector<long long>&b, vector<vector<long long int>> &dp){
         if(ind == -1)return 0;
         
