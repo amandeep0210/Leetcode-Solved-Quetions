@@ -11,6 +11,7 @@ class Solution {
     vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
        vector<int> adj[N];
        for(int i = 0; i<M; i++){
+           //since it is an undirected graph so we need to push all the both the vertics into adj
            adj[edges[i][0]].emplace_back(edges[i][1]);
            adj[edges[i][1]].emplace_back(edges[i][0]);
        }
