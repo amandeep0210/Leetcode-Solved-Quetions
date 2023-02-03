@@ -6,12 +6,6 @@ public:
        int c = s.length();
        char k = '1';
        vector<vector<char>> mat(r, vector<char>(c, k));
-        // for(int i = 0; i< r; i++){
-        //     for(int j = 0; j< c; j++){
-        //         cout << mat[i][j] << " ";
-        //     }
-        //     cout << endl;
-        // }
         int k1 = 0;
         int k2 = 0;
         bool f = true;
