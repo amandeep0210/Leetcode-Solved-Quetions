@@ -11,8 +11,8 @@ public:
             if(mid == 0 and nums[1] != nums[0])return nums[0];
             if(mid == n-1 and nums[n-1] != nums[n-2])return nums[n-1];
             if(nums[mid] == nums[mid-1]){
-               int i = mid;
-               if(mid%2){
+               int i = mid; // the number of elements before it
+               if(i%2){
                    s = mid+1;
                }
                else{
@@ -20,7 +20,7 @@ public:
                }
             }
             else if(nums[mid] == nums[mid+1]){
-                int i = n-mid+1;
+                int i = n-mid+1; // the number of elements after it
                 if(i%2){
                     e = mid-1;
                 }
