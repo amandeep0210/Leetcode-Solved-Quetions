@@ -9,24 +9,43 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        
+        
+        // dummy pointer :
        
-        ListNode *dummy = new ListNode(0);
+//         ListNode *dummy = new ListNode(0);
         
         
-        ListNode* curr = head;
-        bool flag = true; 
-        while (curr != nullptr && flag) {
-            ListNode *temp = curr; 
+//         ListNode* curr = head;
+//         bool flag = true; 
+//         while (curr != nullptr && flag) {
+//             ListNode *temp = curr; 
             
-            if (temp -> next == dummy) {
-                return true;
-            }
-            curr = curr -> next; 
-            temp -> next = dummy ;
+//             if (temp -> next == dummy) {
+//                 return true;
+//             }
+//             curr = curr -> next; 
+//             temp -> next = dummy ;
             
+//         }
+       
+//          return false; 
+        
+        
+        // slow and fast pointer approach :
+        
+        ListNode* slow = head, *fast = head;
+        while(fast != NULL and fast->next != NULL){
+             fast = fast->next->next;
+             slow = slow->next;
+             if(slow == fast)
+                 return true;
         }
-       
-         return false; 
+        return false;
+        
+        
+        
+        
             
     }
 };
