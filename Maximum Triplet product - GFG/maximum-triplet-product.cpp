@@ -12,13 +12,46 @@ class Solution {
   public:
     long long maxTripletProduct(long long arr[], int n)
     {
-      sort(arr, arr+n);
-      long long n1 = arr[n-1], n2 = arr[n-2], n3 = arr[n-3], n4 = arr[0], n5 = arr[1], n6 = arr[2];
-      long long p1 = n1*n2*n3;
-      long long p2 = n4*n5*n1;
-      return max(p1, p2);
+      long long num1 =INT_MIN , num2 = INT_MIN, num3 = INT_MIN;
+      int ind1, ind2, ind3;
+      for(int i = 0; i< n ; i++){
+          if(arr[i] > num1){
+              num1 = arr[i];
+              ind1 = i;
+          }
+      }
+      for(int i = 0; i<n; i++){
+          if(i == ind1)continue;
+          if(arr[i] > num2){
+              num2 = arr[i];
+              ind2 = i;
+          }
+      }
+      for(int i = 0; i<n; i++){
+          if(i == ind1  || i == ind2)continue;
+          if(arr[i] > num3){
+              num3 = arr[i];
+          }
+      }
+      
+      long long num4 = INT_MAX, num5 = INT_MAX;
+      for(int i = 0; i<n; i++){
+          if(arr[i] < num4){
+              num4 = arr[i];
+              ind1 = i;
+          }
+      }
+      for(int  i = 0; i<n; i++){
+          if(i == ind1)continue;
+          if(arr[i] < num5){
+              num5 = arr[i];
+          }
+      }
+      
+      return max(num1*num2*num3, num1*num4*num5);
     }
 };
+
 
 //{ Driver Code Starts.
 
