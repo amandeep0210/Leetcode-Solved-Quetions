@@ -10,7 +10,7 @@ using namespace std;
 class Solution{   
 public:
     int addMinChar(string str){   
-        if(str == "AAAABBAAAAA")return 1;
+        // if(str == "AAAABBAAAAA")return 1;
         int i = 0;
         int j = str.length()-1;
         int e = str.length()-1;
@@ -20,16 +20,9 @@ public:
                 j--;
             }
             else{
-                if(str[0] == str[j]){
-                    e = j;
-                    j = e;
-                    i = 0;
-                }
-                else{
-                    i = 0;
-                    e = e-1;
-                    j = e;
-                }
+               i = 0;
+               j = e-1;
+               e = j;
             }
         }
         return str.length()- (e+1);
