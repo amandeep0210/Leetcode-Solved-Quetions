@@ -26,9 +26,9 @@ public:
                     i = 0;
                 }
                 else{
-                    e = j-1;
-                    j = e;
                     i = 0;
+                    e = e-1;
+                    j = e;
                 }
             }
         }
