@@ -11,14 +11,13 @@ using namespace std;
 class Solution{
 public:
     int remove_duplicate(int arr[],int n){
-        int i = 1;
-        int prev = arr[0];
-        for(int j = 0; j<n; j++){
-            if(arr[j] != prev){
-                arr[i] = arr[j];
-                i++;
-            }
-            prev = arr[j];
+        map<int,int>mp;
+        for(int i = 0; i<n; i++){
+            mp[arr[i]]++;
+        }
+        int i = 0;
+        for(auto it : mp){
+            arr[i++] = it.first;
         }
         return i;
     }
