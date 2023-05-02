@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution{
     public:
-    int isPossible(int mid, vector<int>& v, int k){
+    bool isPossible(int mid, vector<int>& v, int k){
         long long sum = 0;
         int cnt = 0;
         for(int i = 0; i < v.size(); i++){
@@ -20,7 +20,7 @@ class Solution{
                 sum = 0;
             }
         }
-        return cnt;
+        return cnt >= k+1;
         
     }
     int maxSweetness(vector<int>& sweetness, int N, int K) {
@@ -31,8 +31,8 @@ class Solution{
      int ans = 0;
      while(e-s> 1){
          int mid = s + (e-s)/2;
-         if(isPossible(mid, sweetness,K) < K+1)e = mid;
-         else s = mid;
+         if(isPossible(mid, sweetness,K))s = mid;
+         else e = mid;
      }
      return s;
     }
